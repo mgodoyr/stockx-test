@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  gateway:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: "stockx-gateway"
+    restart: always
+    ports:
+      - 3000:3000
+      - 3001:3001
+    depends_on:
+      - postgresql
+  postgresql:
+    image: postgres
+    container_name: "stockx-sourcedata"
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=j2futKZu3kmfRKED
+      - POSTGRES_USER=postgres_node_stockx
+      - POSTGRES_DB=stockx
+    ports:
+    - 5432:5432
+    volumes:
+      - ./model/stockx.sql:/docker-entrypoint-initdb.d/stockx.sql
+      - ./data/db:/var/lib/postgresql/data
+

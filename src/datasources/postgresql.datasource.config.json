@@ -1,0 +1,10 @@
+{
+  "name": "postgresql",
+  "connector": "postgresql",
+  "url": "postgres://postgres_node_stockx:j2futKZu3kmfRKED@postgresql/stockx",
+  "host": "postgresql",
+  "port": 5432,
+  "user": "postgres_node_stockx",
+  "password": "j2futKZu3kmfRKED",
+  "database": "stockx"
+}
