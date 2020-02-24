@@ -28,3 +28,42 @@ to validate TDD, execute the followings commands:
 - enter to gateway container  with `docker-compose exec gateway bash`
 - to validate test, try now `npm run test`
 
+______
+
+example to try:
+
+```bash
+curl -X POST "http://localhost:3000/shoes" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"name\":\"adidas\",\"sizes\":[2,4,6,7,3,2]}"
+```
+
+you can try with postman with this request body (json)
+
+```json
+{
+  "name": "adidas",
+  "sizes": [
+    2,4,6,7,3,2
+  ]
+}
+```
+
+the right response will be:
+
+```json
+{
+  "id": 1,
+  "name": "adidas",
+  "sizes": [
+    2,
+    4,
+    3,
+    2
+  ],
+  "calculation": 2.75
+}
+```
+
+the calculation field is the result of algorithm and the `sizes` is clean.
+compare request body size field and response body `sizes` field
+
+
